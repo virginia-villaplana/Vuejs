@@ -1,0 +1,10 @@
+.abierto > :first-child {
+    color: #2dd2b1;
+}
+
+.progreso {
+    background-color: #e6fff7;
+}
+.terminado {
+    background-color: #e6e6e6;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba vue.js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.min.css">
+    <link rel="stylesheet" href="pruebavue.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    
+
+</head>
+
+<body>
+ <div class="content" id="app">
+    <div class="hero is-primary welcome is-small">
+          <div class="hero-body">
+            <div class="columns">
+                <div class="column is-1">
+                    <img src="../imagenes/logo2.png" alt="Logo" height="60" width="60">
+                </div>
+                <div class="column">
+                    <h1 class="title">
+                     <strong>@</strong>CAMPUS
+                    </h1>
+                     <h2 class="subtitle">
+                     La mayor plataforma de cursos gratuitos
+                    </h2>
+                </div>
+            </div>
+          </div>
+    </div>
+    <section class="section">
+        
+            
+       <!-- Formulario -->
+            <form id="form" class=" form columns" v-cloak>
+                <div class="column is-one-quarter"></div>
+                <section class="column is-half">
+                        <h3 class="label">Añade tu curso</h3>
+                  
+                  <div class="field">
+                      <label for="nombre" class="label">Nombre</label>
+                      <div class="control">
+                        <input id="nombre" class="input" type="text"  placeholder="Nombre del curso" required  minlength="3" maxlength="50" v-model="nombre">
+                      </div>
+                  </div>
+                  <div class="field">
+                      <label for="descripcion" class="label">Descripción</label>
+                      <div class="control">
+                        <textarea class="textarea" id="descripcion" v-model="descripcion" placeholder="Descripción del curso" required minlength="50" maxlength="1000"></textarea>
+                      </div>
+                  </div>
+                   <div class="columns">
+                       <div class="field column is-half">  
+                          <label for="fechain" class="label">Fecha de inicio</label>
+                           <input type="date" id="fechain" v-model="fechain" class="input" required>
+                        </div>
+                        <div class="field column is-half">  
+                          <label for="fechafin" class="label">Fecha de fin</label>
+                           <input type="date" id="fechafin" v-model="fechafin" class="input" required>
+                        </div>
+                    </div>
+                        <div class="field">
+                            <div class="field">
+                              <div class="control">
+                                  <input type="submit" id="addc" value="Añadir" class="button is-primary is-outlined" v-on:click="addCurso" v-on:submit.prevent="onSubmit" >
+                              </div>
+                            </div>
+                        </div>
+                 
+                 </section>
+                </form>
+                    
+     </section>   
+      <!-- Fin formulario -->
+      <!-- Inicio tabla -->      
+        <hr>
+                <section class="columns section">
+                    <div class="column">
+                       <div class="columns">
+                          <div class="column is-1">
+                               <img src="../imagenes/brain.png">
+                          </div>
+                          <div class="title column">
+                               <h3>Oferta de cursos</h3>
+                                <p class="subtitle">
+                                  ¡Corre, que vuelan!
+                                </p>
+                           </div>
+                         </div>
+                          <div class=" column card-table">
+                            <div class="content">
+                              <table class="table is-fullwidth">
+                                <thead>
+                                  <tr>
+                                    <th>Curso</th>
+                                    <th>Descripción</th>
+                                    <th>Fecha</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="abierto">
+                                    <td>Neurociencia</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod.  </small></td>
+                                    <td><small>06/04/2017 - 06/03/2018</small></td>
+                                    <td><a class="button is-small is-primary" href="#">Inscribirme</a></td>
+                                  </tr>
+                                  <tr class="abierto">
+                                    <td>Inteligencia emocional</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod. </small></td>
+                                    <td><small>01/01/2018 - 01/06/2018</small></td>
+                                    <td><a class="button is-small is-light" href="#">En progreso</a></td>
+                                  </tr>
+                                  <tr class="abierto">
+                                    <td>Practitioner PNL</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod. </small></td>
+                                    <td><small>20/04/2018 - 03/07/2018</small></td>
+                                    <td><a class="button is-small is-primary" href="#">Inscribirme</a></td>
+                                  </tr>
+                                  <tr class="progreso">
+                                    <td>Taller de novela</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod. </small></td>
+                                    <td><small>21/02/2018 - 30/05/2018</small></td>
+                                    <td><a class="button is-small is-light" href="#">En progreso</a></td>
+                                  </tr>
+                                  <tr class="abierto">
+                                    <td>Marketing online</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod. </small></td>
+                                    <td><small>01/05/2018 - 01/07/2018</small></td>
+                                    <td><a class="button is-small is-primary" href="#">Inscribirme</a></td>
+                                  </tr>
+                                  <tr class="progreso">
+                                    <td>After Effects</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod. </small></td>
+                                    <td><small>23/03/2018 - 30/04/2018</small></td>
+                                    <td><a class="button is-small is-light" href="#">En progreso</a></td>
+                                  </tr>
+                                  <tr class="abierto">
+                                    <td>Industrias Culturales Digitales</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod.</small></td>
+                                    <td><small>02/05/2018 - 20/01/2019</small></td>
+                                    <td><a class="button is-small is-primary" href="#">Inscribirme</a></td>
+                                  </tr>
+                                  <tr class="terminado">
+                                    <td>Corrección de estilo</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod.</small></td>
+                                    <td><small>10/01/2018 - 31/03/2018</small></td>
+                                    <td><a class="button is-small is-danger" href="#">Terminado</a></td>
+                                  </tr>
+                                  <tr class="terminado">
+                                    <td>Big Data</td>
+                                    <td><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue nec mi interdum euismod eget quis ligula. Cras aliquam cursus nibh, vitae laoreet quam dapibus a. Donec viverra mollis erat eget euismod. </small></td>
+                                    <td><small>06/08/2017 - 01/02/2018</small></td>
+                                    <td><a class="button is-small is-danger" href="#">Terminado</a></td>
+                                  </tr>
+                                 <tr id="curso">
+                                     <td>
+                                        {{curso.nombre}}
+                                      </td>
+                                      <td>
+                                        {{curso.descripcion}}
+                                      </td>
+                                      <td>
+                                        {{curso.fechain}}
+                                      </td>
+                                      <td>
+                                        {{curso.fechafin}}
+                                     </td>
+                                  </tr>
+
+                                    
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                       </div>
+                    </section>
+    </div> 
+  <script src="pruebavue.js"></script>
+</body>
+</html>
